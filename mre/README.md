@@ -10,6 +10,18 @@ Run:
 ./mre/repro.sh
 ```
 
+Useful overrides (to test specific devenv versions without replacing your system `devenv`):
+
+```bash
+DEVENV_REV=<rev> ./mre/repro.sh
+DEVENV_BIN=/path/to/devenv ./mre/repro.sh
+DELAY=3.0 ./mre/repro.sh
+```
+
+The default pin is `DEVENV_REV=2cf62a010000b70f15c78a72761fad7c9e6fb47a` (devenv v2.1.0).
+
+The script prints a final `SUMMARY:` line indicating whether the second `devenv tasks list` contained `demo:show`.
+
 Expected behavior after the config change:
 
 - `devenv tasks list` should include `demo:show`.
